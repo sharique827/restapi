@@ -1020,6 +1020,7 @@ app.get("/checkout/:_id",verifyToken, async (req, res) => {
 })
 app.put("/checkout/:_id",verifyTokenAdmin, async (req, res) => {
     try {
+        
         const data = await Checkout.findOne({ _id: req.params._id })
         if (data) {
             data.mode = req.body.mode?req.body.mode:data.mode
